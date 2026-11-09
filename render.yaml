@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: elandia-grade7-photo-upload
+    runtime: node
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ADMIN_PASSWORD
+        generateValue: false
+        value: Elandia2026!Admin
+      - key: SESSION_SECRET
+        generateValue: true
+    disk:
+      name: photo-storage
+      mountPath: /opt/render/project/src/uploads
+      sizeGB: 10
